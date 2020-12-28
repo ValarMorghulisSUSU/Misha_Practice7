@@ -1,0 +1,5 @@
+D:\Project C++\MONEY\Misha\Practice7\Debug\Practice7.vcxprojAssemblyReference.cache
+D:\Project C++\MONEY\Misha\Practice7\Debug\Practice7.MyForm.resources
+D:\Project C++\MONEY\Misha\Practice7\Debug\Practice7.vcxproj.GenerateResource.cache
+D:\Project C++\MONEY\Misha\Practice7\Debug\Practice7.exe
+D:\Project C++\MONEY\Misha\Practice7\Debug\Practice7.pdb
