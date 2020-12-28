@@ -1,0 +1,6 @@
+F:\C++ projects\Практика_7\Практика_7\Debug\Практика_7.vcxprojAssemblyReference.cache
+F:\C++ projects\Практика_7\Практика_7\Debug\Практика_7.MyForm.resources
+F:\C++ projects\Практика_7\Практика_7\Debug\Практика_7.vcxproj.GenerateResource.cache
+D:\Project C++\ООП осень 2020\Практика_7\Практика_7\Debug\Практика_7.vcxprojAssemblyReference.cache
+D:\Project C++\ООП осень 2020\Практика_7\Практика_7\Debug\Практика_7.MyForm.resources
+D:\Project C++\ООП осень 2020\Практика_7\Практика_7\Debug\Практика_7.vcxproj.GenerateResource.cache
