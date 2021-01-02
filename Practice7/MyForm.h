@@ -45,6 +45,8 @@ namespace Practive5 {
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::Button^ button2;
 	private: System::Windows::Forms::Button^ button4;
+	private: System::Windows::Forms::SaveFileDialog^ saveFileDialog1;
+	private: System::Windows::Forms::RichTextBox^ richTextBox1;
 
 
 
@@ -193,6 +195,8 @@ namespace Practive5 {
 			this->checkBox4 = (gcnew System::Windows::Forms::CheckBox());
 			this->checkBox5 = (gcnew System::Windows::Forms::CheckBox());
 			this->button4 = (gcnew System::Windows::Forms::Button());
+			this->saveFileDialog1 = (gcnew System::Windows::Forms::SaveFileDialog());
+			this->richTextBox1 = (gcnew System::Windows::Forms::RichTextBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->groupBox1->SuspendLayout();
 			this->SuspendLayout();
@@ -550,11 +554,20 @@ namespace Practive5 {
 			this->button4->UseVisualStyleBackColor = true;
 			this->button4->Click += gcnew System::EventHandler(this, &MyForm::button4_Click);
 			// 
+			// richTextBox1
+			// 
+			this->richTextBox1->Location = System::Drawing::Point(659, 29);
+			this->richTextBox1->Name = L"richTextBox1";
+			this->richTextBox1->Size = System::Drawing::Size(100, 96);
+			this->richTextBox1->TabIndex = 36;
+			this->richTextBox1->Text = L"";
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(989, 786);
+			this->Controls->Add(this->richTextBox1);
 			this->Controls->Add(this->button4);
 			this->Controls->Add(this->checkBox5);
 			this->Controls->Add(this->checkBox4);
@@ -691,6 +704,7 @@ namespace Practive5 {
 		this->checkBox4->Show();
 		this->checkBox5->Show();
 		this->checkBox4->Checked = true;
+		this->button4->Text = "Удалить выбранный товар";
 		LookLoan();
 	}
 	private: System::Void radioButton2_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
@@ -709,9 +723,11 @@ namespace Practive5 {
 		this->checkBox5->Checked = true;
 		this->groupBox1->Text = "Подать заявку";
 		this->button1->Text = "Подать заявку";
+		this->button4->Text = "Купить выбранный товар";
 		LookProduct();
 	}
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		this->richTextBox1->Hide();
 		this->dataGridView1->SelectionMode = DataGridViewSelectionMode::FullRowSelect;
 		ToolTip^ t = gcnew ToolTip();
 		t->SetToolTip(this->textBox3, "Если товар не будет выкупаться поставьте 0");
@@ -958,10 +974,6 @@ private: System::Void checkBox5_CheckedChanged(System::Object^ sender, System::E
 			this->dataGridView1->Columns->Add("Column" + i, columnNames[i]);
 		}
 		LookProduct();
-		if (this->radioButton1->Checked)
-			this->button4->Show();
-		else
-			this->button4->Hide();
 	}
 	else
 		this->button4->Hide();
@@ -985,10 +997,35 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
 	try
 	{
-		int index = this->dataGridView1->CurrentRow->Index;
-		this->dataGridView1->Rows->Remove(this->dataGridView1->Rows[index]);
-		this->ProductList->Remove(this->ProductList[index]);
-		LookProduct();
+		this->richTextBox1->Clear();
+		String^ File_name = "Детали заказа";
+		if (this->radioButton1->Checked) {
+			for each (DataGridViewRow ^ row in this->dataGridView1->SelectedRows) {
+				int index = row->Index;
+				this->dataGridView1->Rows->Remove(this->dataGridView1->Rows[index]);
+				this->ProductList->Remove(this->ProductList[index]);
+			}
+		}
+		else {
+			this->saveFileDialog1->InitialDirectory = System::IO::Directory::GetCurrentDirectory();
+			this->saveFileDialog1->Filter = "Rtf файлы (*.rtf)|*.rtf|Все файлы(*.*) | *.*";
+			this->saveFileDialog1->FileName = File_name;
+			if (this->saveFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
+				for each (DataGridViewRow ^ row in this->dataGridView1->SelectedRows) {
+					int index = row->Index;
+					for each (DataGridViewCell ^ cell in row->Cells) {
+						this->richTextBox1->Text += this->dataGridView1->Columns[cell->ColumnIndex]->HeaderText + " - " + cell->Value->ToString() + " ";
+					}
+					this->richTextBox1->Text += "\n";
+					this->dataGridView1->Rows->Remove(this->dataGridView1->Rows[index]);
+					this->ProductList->Remove(this->ProductList[index]);
+					//this->ProductList->Remove(this->ProductList[row->Index]);
+				}
+				File_name = saveFileDialog1->FileName;
+				this->richTextBox1->SaveFile(File_name, RichTextBoxStreamType::RichText);
+			}
+			MessageBox::Show("Распечайте документ и приходите за товаром :)", "Покупка", MessageBoxButtons::OK, MessageBoxIcon::Information);
+		}
 	}
 	catch (...)
 	{
