@@ -44,6 +44,7 @@ namespace Practive5 {
 	private: System::Windows::Forms::TextBox^ textBox11;
 	private: System::Windows::Forms::Button^ button3;
 	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::Button^ button4;
 
 
 
@@ -191,6 +192,7 @@ namespace Practive5 {
 			this->toolTip1 = (gcnew System::Windows::Forms::ToolTip(this->components));
 			this->checkBox4 = (gcnew System::Windows::Forms::CheckBox());
 			this->checkBox5 = (gcnew System::Windows::Forms::CheckBox());
+			this->button4 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->groupBox1->SuspendLayout();
 			this->SuspendLayout();
@@ -538,11 +540,22 @@ namespace Practive5 {
 			this->checkBox5->UseVisualStyleBackColor = true;
 			this->checkBox5->CheckedChanged += gcnew System::EventHandler(this, &MyForm::checkBox5_CheckedChanged);
 			// 
+			// button4
+			// 
+			this->button4->Location = System::Drawing::Point(729, 26);
+			this->button4->Name = L"button4";
+			this->button4->Size = System::Drawing::Size(235, 23);
+			this->button4->TabIndex = 35;
+			this->button4->Text = L"Удалить выбранный товар";
+			this->button4->UseVisualStyleBackColor = true;
+			this->button4->Click += gcnew System::EventHandler(this, &MyForm::button4_Click);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(989, 786);
+			this->Controls->Add(this->button4);
 			this->Controls->Add(this->checkBox5);
 			this->Controls->Add(this->checkBox4);
 			this->Controls->Add(this->checkBox3);
@@ -699,6 +712,7 @@ namespace Practive5 {
 		LookProduct();
 	}
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		this->dataGridView1->SelectionMode = DataGridViewSelectionMode::FullRowSelect;
 		ToolTip^ t = gcnew ToolTip();
 		t->SetToolTip(this->textBox3, "Если товар не будет выкупаться поставьте 0");
 		String^ FL = gcnew String(Directory::GetCurrentDirectory() + "\\BaseCustomer.txt");
@@ -935,6 +949,8 @@ private: System::Void checkBox4_CheckedChanged(System::Object^ sender, System::E
 }
 private: System::Void checkBox5_CheckedChanged(System::Object^ sender, System::EventArgs^ e) {
 	if (this->checkBox5->Checked) {
+
+		this->button4->Show();
 		this->checkBox4->Checked = false;
 		clearDGV();
 		for (int i = 0; i < 4; i++) {
@@ -942,7 +958,13 @@ private: System::Void checkBox5_CheckedChanged(System::Object^ sender, System::E
 			this->dataGridView1->Columns->Add("Column" + i, columnNames[i]);
 		}
 		LookProduct();
+		if (this->radioButton1->Checked)
+			this->button4->Show();
+		else
+			this->button4->Hide();
 	}
+	else
+		this->button4->Hide();
 }
 private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 	try
@@ -953,6 +975,20 @@ private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e
 		this->ProductList->Add(this->loan->product);
 		LookLoan();
 		PeekFromQueue();
+	}
+	catch (...)
+	{
+
+	}
+	
+}
+private: System::Void button4_Click(System::Object^ sender, System::EventArgs^ e) {
+	try
+	{
+		int index = this->dataGridView1->CurrentRow->Index;
+		this->dataGridView1->Rows->Remove(this->dataGridView1->Rows[index]);
+		this->ProductList->Remove(this->ProductList[index]);
+		LookProduct();
 	}
 	catch (...)
 	{
