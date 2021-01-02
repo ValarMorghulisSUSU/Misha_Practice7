@@ -818,8 +818,10 @@ namespace Practive5 {
 			!isEmpty(this->textBox3) && !isEmpty(this->comboBox1) &&
 			!isEmpty(this->comboBox2)) {
 			if (this->checkBox3->Checked) {
-				if (this->textBox3->Text == "0")
+				if (this->textBox3->Text == "0") {
 					this->ProductList->Add(this->loan->product);
+					LookProduct();
+				}
 				else {
 					this->LoanList->Add(this->loan);
 					this->LoanList->Sort(gcnew System::Comparison <Loan^>(CompareByDate));
