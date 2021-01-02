@@ -33,14 +33,32 @@ namespace Practive5 {
 		   System::Collections::Generic::List <Loan^>^ LoanList;
 		   System::Collections::Generic::Queue <Loan^>^ LoanQueue;
 		   System::Collections::Generic::List <Product^>^ ProductList;
-	private: System::Windows::Forms::TextBox^ textBox11;
-	private: System::Windows::Forms::Button^ button3;
+
+
 	private: System::Windows::Forms::CheckBox^ checkBox3;
 	private: System::Windows::Forms::CheckBox^ checkBox2;
 	private: System::Windows::Forms::CheckBox^ checkBox1;
 	private: System::Windows::Forms::ToolTip^ toolTip1;
 	private: System::Windows::Forms::CheckBox^ checkBox4;
 	private: System::Windows::Forms::CheckBox^ checkBox5;
+	private: System::Windows::Forms::TextBox^ textBox11;
+	private: System::Windows::Forms::Button^ button3;
+	private: System::Windows::Forms::Button^ button2;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 		   Loan^ loan;
 	public:
@@ -151,10 +169,11 @@ namespace Practive5 {
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
-			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->textBox11 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
 			this->button3 = (gcnew System::Windows::Forms::Button());
+			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
 			this->label18 = (gcnew System::Windows::Forms::Label());
 			this->textBox14 = (gcnew System::Windows::Forms::TextBox());
 			this->label14 = (gcnew System::Windows::Forms::Label());
@@ -180,18 +199,20 @@ namespace Practive5 {
 			// 
 			this->comboBox1->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->comboBox1->FormattingEnabled = true;
-			this->comboBox1->Location = System::Drawing::Point(158, 41);
+			this->comboBox1->Location = System::Drawing::Point(9, 120);
 			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(197, 21);
+			this->comboBox1->Size = System::Drawing::Size(235, 21);
 			this->comboBox1->TabIndex = 0;
 			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::comboBox1_SelectedIndexChanged);
 			// 
 			// radioButton1
 			// 
 			this->radioButton1->AutoSize = true;
+			this->radioButton1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
 			this->radioButton1->Location = System::Drawing::Point(19, 29);
 			this->radioButton1->Name = L"radioButton1";
-			this->radioButton1->Size = System::Drawing::Size(104, 17);
+			this->radioButton1->Size = System::Drawing::Size(129, 20);
 			this->radioButton1->TabIndex = 1;
 			this->radioButton1->TabStop = true;
 			this->radioButton1->Text = L"Администартор";
@@ -201,9 +222,11 @@ namespace Practive5 {
 			// radioButton2
 			// 
 			this->radioButton2->AutoSize = true;
-			this->radioButton2->Location = System::Drawing::Point(19, 52);
+			this->radioButton2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->radioButton2->Location = System::Drawing::Point(159, 29);
 			this->radioButton2->Name = L"radioButton2";
-			this->radioButton2->Size = System::Drawing::Size(61, 17);
+			this->radioButton2->Size = System::Drawing::Size(73, 20);
 			this->radioButton2->TabIndex = 2;
 			this->radioButton2->TabStop = true;
 			this->radioButton2->Text = L"Клиент";
@@ -213,16 +236,16 @@ namespace Practive5 {
 			// dataGridView1
 			// 
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView1->Location = System::Drawing::Point(381, 29);
+			this->dataGridView1->Location = System::Drawing::Point(279, 55);
 			this->dataGridView1->Name = L"dataGridView1";
-			this->dataGridView1->Size = System::Drawing::Size(685, 510);
+			this->dataGridView1->Size = System::Drawing::Size(685, 703);
 			this->dataGridView1->TabIndex = 3;
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(7, 42);
+			this->textBox1->Location = System::Drawing::Point(9, 42);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->Size = System::Drawing::Size(139, 20);
+			this->textBox1->Size = System::Drawing::Size(235, 20);
 			this->textBox1->TabIndex = 4;
 			this->textBox1->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox1_TextChanged);
 			// 
@@ -230,9 +253,9 @@ namespace Practive5 {
 			// 
 			this->comboBox2->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->comboBox2->FormattingEnabled = true;
-			this->comboBox2->Location = System::Drawing::Point(158, 78);
+			this->comboBox2->Location = System::Drawing::Point(9, 160);
 			this->comboBox2->Name = L"comboBox2";
-			this->comboBox2->Size = System::Drawing::Size(197, 21);
+			this->comboBox2->Size = System::Drawing::Size(235, 21);
 			this->comboBox2->TabIndex = 5;
 			this->comboBox2->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::comboBox2_SelectedIndexChanged);
 			// 
@@ -248,7 +271,7 @@ namespace Practive5 {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(156, 26);
+			this->label2->Location = System::Drawing::Point(6, 104);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(98, 13);
 			this->label2->TabIndex = 7;
@@ -257,7 +280,7 @@ namespace Practive5 {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(156, 63);
+			this->label3->Location = System::Drawing::Point(6, 144);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(64, 13);
 			this->label3->TabIndex = 8;
@@ -265,27 +288,28 @@ namespace Practive5 {
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(158, 118);
+			this->textBox2->Location = System::Drawing::Point(9, 340);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->ReadOnly = true;
-			this->textBox2->Size = System::Drawing::Size(197, 20);
+			this->textBox2->Size = System::Drawing::Size(235, 20);
 			this->textBox2->TabIndex = 9;
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(158, 194);
+			this->button1->Location = System::Drawing::Point(9, 455);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(197, 23);
+			this->button1->Size = System::Drawing::Size(235, 23);
 			this->button1->TabIndex = 10;
 			this->button1->UseVisualStyleBackColor = true;
 			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
 			// groupBox1
 			// 
-			this->groupBox1->Controls->Add(this->label7);
+			this->groupBox1->Controls->Add(this->button2);
 			this->groupBox1->Controls->Add(this->textBox11);
-			this->groupBox1->Controls->Add(this->textBox5);
 			this->groupBox1->Controls->Add(this->button3);
+			this->groupBox1->Controls->Add(this->label7);
+			this->groupBox1->Controls->Add(this->textBox5);
 			this->groupBox1->Controls->Add(this->label18);
 			this->groupBox1->Controls->Add(this->textBox14);
 			this->groupBox1->Controls->Add(this->label14);
@@ -305,51 +329,60 @@ namespace Practive5 {
 			this->groupBox1->Controls->Add(this->label3);
 			this->groupBox1->Controls->Add(this->comboBox2);
 			this->groupBox1->Controls->Add(this->label2);
-			this->groupBox1->Location = System::Drawing::Point(13, 153);
+			this->groupBox1->Location = System::Drawing::Point(12, 162);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(362, 386);
+			this->groupBox1->Size = System::Drawing::Size(255, 596);
 			this->groupBox1->TabIndex = 11;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Добавление заказа";
 			// 
+			// button2
+			// 
+			this->button2->Location = System::Drawing::Point(9, 484);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(235, 23);
+			this->button2->TabIndex = 31;
+			this->button2->Text = L"Отправить на продажу";
+			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
+			// 
+			// textBox11
+			// 
+			this->textBox11->Location = System::Drawing::Point(9, 533);
+			this->textBox11->Name = L"textBox11";
+			this->textBox11->Size = System::Drawing::Size(235, 20);
+			this->textBox11->TabIndex = 30;
+			// 
+			// button3
+			// 
+			this->button3->Location = System::Drawing::Point(9, 559);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(235, 23);
+			this->button3->TabIndex = 29;
+			this->button3->Text = L"Продлить на указанный срок";
+			this->button3->UseVisualStyleBackColor = true;
+			// 
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Location = System::Drawing::Point(30, 237);
+			this->label7->Location = System::Drawing::Point(6, 401);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(116, 13);
 			this->label7->TabIndex = 16;
 			this->label7->Text = L"Дата выплаты займа";
 			// 
-			// textBox11
-			// 
-			this->textBox11->Location = System::Drawing::Point(8, 299);
-			this->textBox11->Name = L"textBox11";
-			this->textBox11->Size = System::Drawing::Size(139, 20);
-			this->textBox11->TabIndex = 28;
-			// 
 			// textBox5
 			// 
-			this->textBox5->Location = System::Drawing::Point(158, 234);
+			this->textBox5->Location = System::Drawing::Point(9, 417);
 			this->textBox5->Name = L"textBox5";
 			this->textBox5->ReadOnly = true;
-			this->textBox5->Size = System::Drawing::Size(197, 20);
+			this->textBox5->Size = System::Drawing::Size(235, 20);
 			this->textBox5->TabIndex = 15;
-			// 
-			// button3
-			// 
-			this->button3->Location = System::Drawing::Point(8, 325);
-			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(139, 36);
-			this->button3->TabIndex = 27;
-			this->button3->Text = L"Продлить на указанный срок";
-			this->button3->UseVisualStyleBackColor = true;
-			this->button3->Click += gcnew System::EventHandler(this, &MyForm::button3_Click);
 			// 
 			// label18
 			// 
 			this->label18->AutoSize = true;
-			this->label18->Location = System::Drawing::Point(6, 102);
+			this->label18->Location = System::Drawing::Point(6, 184);
 			this->label18->Name = L"label18";
 			this->label18->Size = System::Drawing::Size(83, 13);
 			this->label18->TabIndex = 21;
@@ -357,33 +390,33 @@ namespace Practive5 {
 			// 
 			// textBox14
 			// 
-			this->textBox14->Location = System::Drawing::Point(7, 118);
+			this->textBox14->Location = System::Drawing::Point(9, 200);
 			this->textBox14->Name = L"textBox14";
-			this->textBox14->Size = System::Drawing::Size(139, 20);
+			this->textBox14->Size = System::Drawing::Size(235, 20);
 			this->textBox14->TabIndex = 20;
 			this->textBox14->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox14_TextChanged);
 			// 
 			// label14
 			// 
 			this->label14->AutoSize = true;
-			this->label14->Location = System::Drawing::Point(6, 180);
+			this->label14->Location = System::Drawing::Point(6, 265);
 			this->label14->Name = L"label14";
-			this->label14->Size = System::Drawing::Size(88, 13);
+			this->label14->Size = System::Drawing::Size(133, 13);
 			this->label14->TabIndex = 19;
-			this->label14->Text = L"Вес (в граммах)";
+			this->label14->Text = L"Вес изделия (в граммах)";
 			// 
 			// textBox12
 			// 
-			this->textBox12->Location = System::Drawing::Point(7, 196);
+			this->textBox12->Location = System::Drawing::Point(9, 281);
 			this->textBox12->Name = L"textBox12";
-			this->textBox12->Size = System::Drawing::Size(139, 20);
+			this->textBox12->Size = System::Drawing::Size(235, 20);
 			this->textBox12->TabIndex = 18;
 			this->textBox12->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox12_TextChanged);
 			// 
 			// label15
 			// 
 			this->label15->AutoSize = true;
-			this->label15->Location = System::Drawing::Point(6, 63);
+			this->label15->Location = System::Drawing::Point(6, 65);
 			this->label15->Name = L"label15";
 			this->label15->Size = System::Drawing::Size(93, 13);
 			this->label15->TabIndex = 17;
@@ -391,24 +424,24 @@ namespace Practive5 {
 			// 
 			// textBox6
 			// 
-			this->textBox6->Location = System::Drawing::Point(7, 79);
+			this->textBox6->Location = System::Drawing::Point(9, 81);
 			this->textBox6->Name = L"textBox6";
-			this->textBox6->Size = System::Drawing::Size(139, 20);
+			this->textBox6->Size = System::Drawing::Size(235, 20);
 			this->textBox6->TabIndex = 16;
 			this->textBox6->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox6_TextChanged);
 			// 
 			// textBox4
 			// 
-			this->textBox4->Location = System::Drawing::Point(159, 157);
+			this->textBox4->Location = System::Drawing::Point(9, 378);
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->ReadOnly = true;
-			this->textBox4->Size = System::Drawing::Size(196, 20);
+			this->textBox4->Size = System::Drawing::Size(235, 20);
 			this->textBox4->TabIndex = 14;
 			// 
 			// label6
 			// 
 			this->label6->BackColor = System::Drawing::Color::Transparent;
-			this->label6->Location = System::Drawing::Point(156, 141);
+			this->label6->Location = System::Drawing::Point(6, 363);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(203, 35);
 			this->label6->TabIndex = 15;
@@ -417,24 +450,24 @@ namespace Practive5 {
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Location = System::Drawing::Point(6, 141);
+			this->label5->Location = System::Drawing::Point(6, 223);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(32, 13);
+			this->label5->Size = System::Drawing::Size(240, 13);
 			this->label5->TabIndex = 13;
-			this->label5->Text = L"Срок";
+			this->label5->Text = L"Срок (Напишите 0 если хотите продать товар)";
 			// 
 			// textBox3
 			// 
-			this->textBox3->Location = System::Drawing::Point(7, 157);
+			this->textBox3->Location = System::Drawing::Point(9, 242);
 			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(139, 20);
+			this->textBox3->Size = System::Drawing::Size(235, 20);
 			this->textBox3->TabIndex = 12;
 			this->textBox3->TextChanged += gcnew System::EventHandler(this, &MyForm::textBox3_TextChanged);
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(156, 102);
+			this->label4->Location = System::Drawing::Point(6, 324);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(132, 13);
 			this->label4->TabIndex = 11;
@@ -443,9 +476,11 @@ namespace Practive5 {
 			// checkBox3
 			// 
 			this->checkBox3->AutoSize = true;
-			this->checkBox3->Location = System::Drawing::Point(19, 84);
+			this->checkBox3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->checkBox3->Location = System::Drawing::Point(12, 74);
 			this->checkBox3->Name = L"checkBox3";
-			this->checkBox3->Size = System::Drawing::Size(114, 17);
+			this->checkBox3->Size = System::Drawing::Size(139, 20);
 			this->checkBox3->TabIndex = 32;
 			this->checkBox3->Text = L"Добавить заявку";
 			this->checkBox3->UseVisualStyleBackColor = true;
@@ -454,9 +489,11 @@ namespace Practive5 {
 			// checkBox2
 			// 
 			this->checkBox2->AutoSize = true;
-			this->checkBox2->Location = System::Drawing::Point(19, 107);
+			this->checkBox2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->checkBox2->Location = System::Drawing::Point(12, 126);
 			this->checkBox2->Name = L"checkBox2";
-			this->checkBox2->Size = System::Drawing::Size(167, 17);
+			this->checkBox2->Size = System::Drawing::Size(209, 20);
 			this->checkBox2->TabIndex = 31;
 			this->checkBox2->Text = L"Закрыть заявку из очереди";
 			this->checkBox2->UseVisualStyleBackColor = true;
@@ -465,9 +502,11 @@ namespace Practive5 {
 			// checkBox1
 			// 
 			this->checkBox1->AutoSize = true;
-			this->checkBox1->Location = System::Drawing::Point(19, 130);
+			this->checkBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->checkBox1->Location = System::Drawing::Point(12, 100);
 			this->checkBox1->Name = L"checkBox1";
-			this->checkBox1->Size = System::Drawing::Size(115, 17);
+			this->checkBox1->Size = System::Drawing::Size(141, 20);
 			this->checkBox1->TabIndex = 30;
 			this->checkBox1->Text = L"Изменить заявку";
 			this->checkBox1->UseVisualStyleBackColor = true;
@@ -476,9 +515,11 @@ namespace Practive5 {
 			// checkBox4
 			// 
 			this->checkBox4->AutoSize = true;
-			this->checkBox4->Location = System::Drawing::Point(381, 6);
+			this->checkBox4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->checkBox4->Location = System::Drawing::Point(279, 29);
 			this->checkBox4->Name = L"checkBox4";
-			this->checkBox4->Size = System::Drawing::Size(136, 17);
+			this->checkBox4->Size = System::Drawing::Size(167, 20);
 			this->checkBox4->TabIndex = 33;
 			this->checkBox4->Text = L"Просмотр должников";
 			this->checkBox4->UseVisualStyleBackColor = true;
@@ -487,9 +528,11 @@ namespace Practive5 {
 			// checkBox5
 			// 
 			this->checkBox5->AutoSize = true;
-			this->checkBox5->Location = System::Drawing::Point(523, 6);
+			this->checkBox5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->checkBox5->Location = System::Drawing::Point(452, 29);
 			this->checkBox5->Name = L"checkBox5";
-			this->checkBox5->Size = System::Drawing::Size(121, 17);
+			this->checkBox5->Size = System::Drawing::Size(150, 20);
 			this->checkBox5->TabIndex = 34;
 			this->checkBox5->Text = L"Просмотр товаров";
 			this->checkBox5->UseVisualStyleBackColor = true;
@@ -499,7 +542,7 @@ namespace Practive5 {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1082, 561);
+			this->ClientSize = System::Drawing::Size(989, 786);
 			this->Controls->Add(this->checkBox5);
 			this->Controls->Add(this->checkBox4);
 			this->Controls->Add(this->checkBox3);
@@ -510,6 +553,7 @@ namespace Practive5 {
 			this->Controls->Add(this->radioButton2);
 			this->Controls->Add(this->radioButton1);
 			this->Name = L"MyForm";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"MyForm";
 			this->FormClosing += gcnew System::Windows::Forms::FormClosingEventHandler(this, &MyForm::MyForm_FormClosing);
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
@@ -683,6 +727,7 @@ namespace Practive5 {
 			this->groupBox1->Text = "Изменение заявки";
 			this->textBox11->Show();
 			this->button3->Show();
+			this->button2->Hide();
 		}
 		else
 			if (!this->checkBox2->Checked && !this->checkBox3->Checked)
@@ -705,6 +750,7 @@ namespace Practive5 {
 			this->button3->Show();
 			this->groupBox1->Text = "Закрытие заявки";
 			this->button1->Text = "Закрыть заявку";
+			this->button2->Show();
 		}
 		else
 			if (!this->checkBox1->Checked && !this->checkBox3->Checked)
@@ -728,6 +774,7 @@ namespace Practive5 {
 			this->button3->Hide();
 			this->groupBox1->Text = "Добавление заявки";
 			this->button1->Text = "Добавить заявку";
+			this->button2->Hide();
 		}
 		else
 			if (!this->checkBox1->Checked && !this->checkBox2->Checked)
@@ -767,53 +814,66 @@ namespace Practive5 {
 	}
 	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
 		//Add
-		if (this->checkBox3->Checked) {
-			if (this->textBox3->Text == "0")
-				this->ProductList->Add(this->loan->product);
-			else {
-				this->LoanList->Add(this->loan);
-				this->LoanList->Sort(gcnew System::Comparison <Loan^>(CompareByDate));
-				this->LoanQueue->Clear();
-				for each (Loan ^ el in this->LoanList) {
-					this->LoanQueue->Enqueue(el);
+		if (!isEmpty(this->textBox1) && !isEmpty(this->textBox6) && !isEmpty(this->textBox14) &&
+			!isEmpty(this->textBox3) && !isEmpty(this->comboBox1) &&
+			!isEmpty(this->comboBox2)) {
+			if (this->checkBox3->Checked) {
+				if (this->textBox3->Text == "0")
+					this->ProductList->Add(this->loan->product);
+				else {
+					this->LoanList->Add(this->loan);
+					this->LoanList->Sort(gcnew System::Comparison <Loan^>(CompareByDate));
+					this->LoanQueue->Clear();
+					for each (Loan ^ el in this->LoanList) {
+						this->LoanQueue->Enqueue(el);
+					}
+					if (this->radioButton1->Checked)
+						LookLoan();
+					else
+						MessageBox::Show(String::Format("Ваша заявка подана, стоимость выкупа товара: {0}\nДата выплаты: {1}", this->loan->loan, this->loan->date), "Заявка принята.", MessageBoxButtons::OK, MessageBoxIcon::Information);
 				}
-				if (this->radioButton1->Checked)
-					LookLoan();
-				else
-					MessageBox::Show(String::Format("Ваша заявка подана, сумма выплаты кредита: {0}\nДата выплаты: {1}", this->loan->loan, this->loan->date), "Заявка принята.", MessageBoxButtons::OK, MessageBoxIcon::Information);
 			}
 		}
+		else
+			MessageBox::Show("Не все поля заполнены", "Ошибка", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		
 		//Close
 		if (this->checkBox2->Checked) {
-			System::Windows::Forms::DialogResult Res = MessageBox::Show("Долг был возвращен?\nНажмите \"Нет\", чтобы отправить товар на продажу. ", "Обработка запроса.", MessageBoxButtons::YesNo, MessageBoxIcon::Question);
-			if (Res == System::Windows::Forms::DialogResult::Yes) {
+			try
+			{
 				this->LoanList->Remove(this->LoanQueue->Dequeue());
 				this->LoanQueue->Clear();
 				for each (Loan ^ el in this->LoanList) {
 					this->LoanQueue->Enqueue(el);
 				}
 				LookLoan();
+				PeekFromQueue();
 			}
-			else {
-				this->LoanList->Remove(this->LoanQueue->Dequeue());
-				this->LoanQueue->Clear();
-				for each (Loan ^ el in this->LoanList) {this->LoanQueue->Enqueue(el);}
-				this->ProductList->Add(this->loan->product);
-				LookLoan();
+			catch (...)
+			{
+
 			}
-			PeekFromQueue();
+			
 		}
 		//Edit
 		if (this->checkBox1->Checked) {
-			Change();
-			this->loan->days = this->LoanList[0]->days;
-			this->LoanList[0] = this->loan;
-			this->LoanQueue->Clear();
-			for each (Loan ^ el in this->LoanList) {
-				this->LoanQueue->Enqueue(el);
+			try
+			{
+				Change();
+				this->loan->days = this->LoanList[0]->days;
+				this->LoanList[0] = this->loan;
+				this->LoanQueue->Clear();
+				for each (Loan ^ el in this->LoanList) {
+					this->LoanQueue->Enqueue(el);
+				}
+				LookLoan();
+				PeekFromQueue();
 			}
-			LookLoan();
-			PeekFromQueue();
+			catch (...)
+			{
+
+			}
+			
 		}
 
 	}
@@ -881,6 +941,22 @@ private: System::Void checkBox5_CheckedChanged(System::Object^ sender, System::E
 		}
 		LookProduct();
 	}
+}
+private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+	try
+	{
+		this->LoanList->Remove(this->LoanQueue->Dequeue());
+		this->LoanQueue->Clear();
+		for each (Loan ^ el in this->LoanList) { this->LoanQueue->Enqueue(el); }
+		this->ProductList->Add(this->loan->product);
+		LookLoan();
+		PeekFromQueue();
+	}
+	catch (...)
+	{
+
+	}
+	
 }
 };
 }
